@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Undangan Pernikahan Deraz & Dhalia - One Piece Voyage</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Pirata+One&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* RESET & BASE STYLES - ZERO DEPENDENCY CSS */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #030712;
+            color: #F5E6C8;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.5;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            overflow-x: hidden;
+        }
+
+        body.no-scroll {
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        /* TYPOGRAPHY */
+        .font-pirate { font-family: 'Pirata One', cursive; }
+        .font-cinzel { font-family: 'Cinzel', serif; }
+
+        /* THEME COLORS */
+        :root {
+            --op-gold: #E6C658;
+            --op-gold-dark: #B8860B;
+            --op-navy: #0B132B;
+            --op-deep-ocean: #030712;
+            --op-parchment: #F5E6C8;
+            --op-brown: #3D2314;
+        }
+
+        /* PARCHMENT CARD */
+        .parchment {
+            background-color: var(--op-parchment);
+            color: var(--op-brown);
+            border: 3px solid var(--op-gold-dark);
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .gold-border {
+            border: 2px solid var(--op-gold);
+        }
+
+        /* LAYOUT HELPERS */
+        .container {
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        .text-center { text-align: center; }
+        .text-gold { color: var(--op-gold); }
+        .text-white { color: #FFFFFF; }
+        .text-gray { color: #9CA3AF; }
+
+        /* OVERLAY COVER */
+        #coverOverlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background-color: var(--op-deep-ocean);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 16px;
+            text-align: center;
+            border-bottom: 4px solid var(--op-gold);
+            overflow-y: auto;
+        }
+
+        .cover-content {
+            margin: auto 0;
+            width: 100%;
+            max-width: 380px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .strawhat-icon {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 16px;
+            fill: var(--op-gold);
+        }
+
+        .btn-main {
+            width: 100%;
+            max-width: 300px;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--op-gold-dark), var(--op-gold), var(--op-gold-dark));
+            color: var(--op-navy);
+            font-family: 'Pirata One', cursive;
+            font-size: 1.5rem;
+            border-radius: 9999px;
+            border: 2px solid #FFFFFF;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(230, 198, 88, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-main:active {
+            transform: scale(0.96);
+        }
+
+        /* FLOATING BAR */
+        .floating-bar {
+            position: fixed;
+            top: 12px;
+            right: 12px;
+            z-index: 8888;
+            background: rgba(0, 0, 0, 0.85);
+            border: 1px solid rgba(230, 198, 88, 0.4);
+            padding: 6px 12px;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+
+        .btn-chip {
+            background: none;
+            border: none;
+            color: var(--op-gold);
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 8px;
+            border-radius: 12px;
+        }
+
+        .btn-chip:active {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 48px 0;
+            border-bottom: 1px solid rgba(230, 198, 88, 0.15);
+        }
+
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* WANTED POSTERS */
+        .poster-card {
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .poster-frame {
+            width: 100%;
+            height: 220px;
+            background-color: rgba(61, 35, 20, 0.1);
+            border: 2px solid var(--op-brown);
+            border-radius: 6px;
+            overflow: hidden;
+            margin: 12px 0;
+        }
+
+        .poster-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bounty-row {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid rgba(61, 35, 20, 0.3);
+            padding-top: 8px;
+            font-family: 'Pirata One', cursive;
+            color: var(--op-brown);
+        }
+
+        /* STORY CHAPTERS */
+        .story-card {
+            background: rgba(0, 0, 0, 0.75);
+            border: 2px solid var(--op-gold);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 20px;
+        }
+
+        .story-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(230, 198, 88, 0.3);
+            padding-bottom: 8px;
+            margin-bottom: 12px;
+        }
+
+        .story-img-container {
+            width: 100%;
+            height: 180px;
+            border-radius: 8px;
+            border: 1px solid rgba(230, 198, 88, 0.4);
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 12px;
+        }
+
+        .story-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .story-quote {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.85));
+            padding: 12px 8px 6px 8px;
+            color: var(--op-gold);
+            font-size: 0.75rem;
+            font-family: 'Pirata One', cursive;
+        }
+
+        /* COUNTDOWN GRID */
+        .timer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .timer-box {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1.5px solid var(--op-gold);
+            border-radius: 8px;
+            padding: 10px 4px;
+        }
+
+        /* BUTTON LINK */
+        .btn-map {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background: var(--op-brown);
+            color: var(--op-gold);
+            font-family: 'Pirata One', cursive;
+            font-size: 1.25rem;
+            border-radius: 8px;
+            text-decoration: none;
+            text-align: center;
+            margin-top: 12px;
+        }
+
+        /* FORM STYLING */
+        .form-group {
+            text-align: left;
+            margin-bottom: 12px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--op-gold);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            background: #000;
+            color: #FFF;
+            border: 1px solid rgba(230, 198, 88, 0.5);
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--op-gold);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background: var(--op-gold);
+            color: var(--op-navy);
+            font-family: 'Pirata One', cursive;
+            font-size: 1.25rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* GIFT CARDS */
+        .gift-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 12px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+            margin-bottom: 8px;
+        }
+
+        .btn-copy {
+            background: rgba(230, 198, 88, 0.2);
+            color: var(--op-gold);
+            border: 1px solid rgba(230, 198, 88, 0.5);
+            padding: 6px 12px;
+            font-size: 0.75rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="no-scroll">
+
+    <!-- AUDIO PLAYER WITH FALLBACK PATHS -->
+    <audio id="weddingAudio" loop preload="auto">
+        <source src="lagu.mp3" type="audio/mpeg">
+        <source src="lagu.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- FULLSCREEN COVER OVERLAY -->
+    <div id="coverOverlay">
+        <div class="cover-content">
+            <!-- Strawhat SVG -->
+            <svg class="strawhat-icon" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5-9h10v2H7z"/>
+            </svg>
+
+            <p class="font-pirate text-gold" style="font-size: 1.25rem; letter-spacing: 2px;">THE GREAT WEDDING VOYAGE</p>
+            <h1 class="font-cinzel text-white" style="font-size: 2rem; margin: 8px 0; font-weight: 800;">DERAZ & DHALIA</h1>
+            <p class="text-gold" style="font-size: 0.75rem; font-style: italic; margin-bottom: 24px;">"Petualangan Terhebat Kami Dimulai Di Sini"</p>
+
+            <!-- Recipient Card -->
+            <div class="parchment" style="padding: 16px; width: 100%; margin-bottom: 28px;">
+                <p style="font-size: 0.65rem; font-weight: bold; color: #78350F; text-transform: uppercase;">Kepada Yth. Nakama:</p>
+                <h2 id="guestNameDisplay" class="font-pirate" style="font-size: 1.6rem; color: #451A03; margin-top: 4px;">Tamu Undangan</h2>
+                <p style="font-size: 0.65rem; color: #92400E; font-style: italic;">Di Bandung / Alabasta Grand Line</p>
+            </div>
+
+            <!-- Touch Open Button -->
+            <button id="btnOpenInvitation" type="button" class="btn-main">
+                <span>⚓ BUKA UNDANGAN 🧭</span>
+            </button>
+        </div>
+
+        <p class="text-gray font-cinzel" style="font-size: 0.65rem;">Grand Line • Mekah 2026</p>
+    </div>
+
+    <!-- MAIN APP CONTENT -->
+    <div id="mainApp">
+
+        <!-- FLOATING CONTROLS -->
+        <div class="floating-bar">
+            <button id="btnAutoPlay" type="button" class="btn-chip">
+                <span id="iconAutoPlay">▶</span>
+                <span id="textAutoPlay">Auto Play</span>
+            </button>
+            <span style="color: rgba(230, 198, 88, 0.4);">|</span>
+            <button id="btnAudioToggle" type="button" class="btn-chip">
+                <span id="iconAudio">🔈</span>
+                <span>Musik</span>
+            </button>
+        </div>
+
+        <!-- HERO SECTION -->
+        <section class="hero-section">
+            <div class="container">
+                <p class="font-pirate text-gold" style="font-size: 1.25rem; letter-spacing: 2px;">WANTED FOR A LIFETIME</p>
+                <h1 class="font-cinzel text-white" style="font-size: 2.5rem; font-weight: 900; margin: 8px 0;">DERAZ & DHALIA</h1>
+                <p class="font-pirate text-gold" style="font-size: 1.5rem;">฿ 9 NOVEMBER 2026</p>
+                <p class="text-gray" style="font-size: 0.8rem; margin: 16px auto; max-width: 320px;">
+                    "Seperti kapal yang menemukan pelabuhan utamanya, kami mengundangmu menjadi saksi awal dari pelayaran abadi kami."
+                </p>
+                <div style="margin-top: 24px;">
+                    <a href="#sectionWanted" class="font-pirate text-gold" style="text-decoration: none; font-size: 1rem;">
+                        GULIR KE BAWAH 👇
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- WANTED POSTERS SECTION -->
+        <section id="sectionWanted">
+            <div class="container text-center">
+                <p class="font-pirate text-gold" style="font-size: 1.25rem;">THE MOST WANTED CREW</p>
+                <h2 class="font-cinzel text-white" style="font-size: 1.5rem; margin-bottom: 24px;">Mempelai Pengantin</h2>
+
+                <!-- DERAZ -->
+                <div class="parchment poster-card">
+                    <h3 class="font-pirate" style="font-size: 2rem; color: #451A03; letter-spacing: 2px;">WANTED</h3>
+                    <div class="poster-frame">
+                        <img src="https://i.ibb.co/vCQtgMTC/IMG-20260526-WA0046.jpg" alt="Deraz">
+                    </div>
+                    <h4 class="font-pirate" style="font-size: 1.6rem; color: #451A03;">DERAZ</h4>
+                    <p style="font-size: 0.7rem; font-weight: bold; color: #78350F; text-transform: uppercase;">Mempelai Pria</p>
+                    <div class="bounty-row" style="font-size: 0.9rem; margin-top: 8px;">
+                        <span>BOUNTY:</span>
+                        <span style="color: #B91C1C; font-weight: bold;">UNLIMITED LOVE</span>
+                    </div>
+                </div>
+
+                <!-- DHALIA -->
+                <div class="parchment poster-card">
+                    <h3 class="font-pirate" style="font-size: 2rem; color: #451A03; letter-spacing: 2px;">WANTED</h3>
+                    <div class="poster-frame">
+                        <img src="https://i.ibb.co.com/HD1NJh9D/IMG-20261026-WA0020.jpg" alt="Dhalia">
+                    </div>
+                    <h4 class="font-pirate" style="font-size: 1.6rem; color: #451A03;">DHALIA</h4>
+                    <p style="font-size: 0.7rem; font-weight: bold; color: #78350F; text-transform: uppercase;">Mempelai Wanita</p>
+                    <div class="bounty-row" style="font-size: 0.9rem; margin-top: 8px;">
+                        <span>BOUNTY:</span>
+                        <span style="color: #B91C1C; font-weight: bold;">UNLIMITED LOVE</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STRAW HAT JOURNEY ARC (LUFFY STYLE) -->
+        <section id="sectionJourney">
+            <div class="container text-center">
+                <p class="font-pirate text-gold" style="font-size: 1.25rem;">📜 LOG BOOK JOURNEY</p>
+                <h2 class="font-cinzel text-white" style="font-size: 1.5rem;">Kisah Petualangan Cinta</h2>
+                <p class="text-gray" style="font-size: 0.75rem; font-style: italic; margin-bottom: 24px;">"Seperti Luffy yang mengarungi lautan, kami menemukan One Piece kami sendiri."</p>
+
+                <!-- CHAPTER I -->
+                <div class="story-card text-center">
+                    <div class="story-header">
+                        <span class="font-pirate text-gold" style="font-size: 1.1rem;">CHAPTER I: EAST BLUE</span>
+                        <span style="font-size: 0.65rem; background: rgba(230,198,88,0.2); color: var(--op-gold); padding: 2px 6px; border-radius: 4px;">Pertemuan</span>
+                    </div>
+                    <div class="story-img-container">
+                        <img src="https://i.ibb.co.com/DDtYfTTk/IMG-20260301-WA0066.jpg" alt="East Blue">
+                        <div class="story-quote">"Aku pasti akan menemukan takdirku!"</div>
+                    </div>
+                    <p class="text-gray" style="font-size: 0.75rem; text-align: left;">
+                        Awal mula pelayaran Deraz & Dhalia dipertemukan di lautan tenang East Blue. Seperti Luffy saat pertama kali mengibarkan bendera bajak lautnya, kami menyadari bahwa perjalanan ini tak akan lagi mengarungi samudra sendirian.
+                    </p>
+                </div>
+
+                <!-- CHAPTER II -->
+                <div class="story-card text-center">
+                    <div class="story-header">
+                        <span class="font-pirate text-gold" style="font-size: 1.1rem;">CHAPTER II: GRAND LINE</span>
+                        <span style="font-size: 0.65rem; background: rgba(230,198,88,0.2); color: var(--op-gold); padding: 2px 6px; border-radius: 4px;">Ujian & Nakama</span>
+                    </div>
+                    <div class="story-img-container">
+                        <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=700&q=80" alt="Grand Line">
+                        <div class="story-quote">"Jika kamu tidak mengambil risiko, kamu tidak bisa menciptakan masa depan!"</div>
+                    </div>
+                    <p class="text-gray" style="font-size: 0.75rem; text-align: left;">
+                        Mengarungi terjalnya ombak dan badai di Grand Line. Saling menguatkan dalam suka dan duka layaknya kelompok Topi Jerami yang memegang teguh arti komitmen, rasa percaya, serta persahabatan sejati.
+                    </p>
+                </div>
+
+                <!-- CHAPTER III -->
+                <div class="story-card text-center">
+                    <div class="story-header">
+                        <span class="font-pirate text-gold" style="font-size: 1.1rem;">CHAPTER III: LAUGH TALE</span>
+                        <span style="font-size: 0.65rem; background: rgba(230,198,88,0.2); color: var(--op-gold); padding: 2px 6px; border-radius: 4px;">Dermaga Abadi</span>
+                    </div>
+                    <div class="story-img-container">
+                        <img src="https://i.ibb.co.com/1tpLdR68/IMG-20260905-WA0103.jpg" alt="Laugh Tale">
+                        <div class="story-quote">"Harta karun terbesar adalah bisa bersamamu selamanya."</div>
+                    </div>
+                    <p class="text-gray" style="font-size: 0.75rem; text-align: left;">
+                        Akhirnya pelabuhan impian itu terlihat: <strong class="text-gold">Kota Suci Mekah</strong>. Di sinilah "One Piece" atau harta karun berupa ikatan suci pernikahan Deraz & Dhalia akan disatukan selamanya dalam doa dan keberkahan.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- COUNTDOWN TIMER -->
+        <section class="text-center">
+            <div class="container">
+                <p style="font-size: 2rem;">🧭</p>
+                <h3 class="font-pirate text-gold" style="font-size: 1.5rem;">LOG POSE COUNTDOWN</h3>
+                <p class="text-gray" style="font-size: 0.75rem; margin-bottom: 12px;">Menuju Berlabuhnya Bahtera Pernikahan:</p>
+
+                <div class="timer-grid">
+              
